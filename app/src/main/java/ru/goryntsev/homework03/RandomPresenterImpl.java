@@ -37,4 +37,10 @@ public class RandomPresenterImpl extends MvpPresenter<RandomView> implements Ran
     public void newValue(int value) {
         getViewState().newValue(value);
     }
+
+    @Override
+    public void onDestroy() {
+        super.onDestroy();
+        generator.cancel(true);
+    }
 }
